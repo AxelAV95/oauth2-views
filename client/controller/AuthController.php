@@ -46,13 +46,13 @@ class AuthController extends Controller
         $tokenData = $response->json();
         $user = $this->getUser($response->json());
 
-        session()->put('user', $user);
-        session()->put('access_token', $tokenData['access_token']);
-        session()->put('refresh_token', $tokenData['refresh_token']);
+      //  session()->put('user', $user);
+       // session()->put('access_token', $tokenData['access_token']);
+        //session()->put('refresh_token', $tokenData['refresh_token']);
 
         Auth::loginUsingId($user['id']);
-        // dd($user->json(), $response->json());
-        return redirect('http://client.test/dashboard');
+        dd($user->json(), $response->json());
+        //return redirect('http://client.test/dashboard');
     }
     private function getUser($json_response)
     {
